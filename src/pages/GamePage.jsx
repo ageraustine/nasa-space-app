@@ -6,15 +6,8 @@ class GamePage extends Component {
     super();
     this.state = {
       bubbles: [],
-      pinAngle: 0,
     };
   }
-
-  handlePinClick = () => {
-    // Increment the pin angle on each click (you can adjust the step)
-    const newAngle = this.state.pinAngle + 10;
-    this.setState({ pinAngle: newAngle });
-  };
 
   componentDidMount() {
     // Generate initial bubbles
@@ -24,13 +17,14 @@ class GamePage extends Component {
     this.startBubbleMovement();
   }
 
-  // Function to generate a new bubble
   generateBubble = () => {
+    const bubbleColors = ["red", "blue", "green", "purple"];
     const bubble = {
       id: Date.now(),
       x: Math.random() * window.innerWidth,
       y: window.innerHeight,
       popped: false,
+      color: bubbleColors[Math.floor(Math.random() * bubbleColors.length)],
     };
 
     this.setState((prevState) => ({
@@ -41,7 +35,7 @@ class GamePage extends Component {
   // Function to generate bubbles periodically
   generateBubbles = () => {
     this.generateBubble();
-    setTimeout(this.generateBubbles, 2000); // Adjust the interval as needed
+    setTimeout(this.generateBubbles, 2000);
   };
 
   // Function to update bubble positions
@@ -49,41 +43,54 @@ class GamePage extends Component {
     this.setState((prevState) => ({
       bubbles: prevState.bubbles.map((bubble) => ({
         ...bubble,
-        y: bubble.y - 5, // Adjust the speed as needed
+        y: bubble.y - 2,
       })),
     }));
   };
 
   handleBubbleClick = (id) => {
-    // Mark the clicked bubble as popped
+    // Find the clicked bubble and mark it as popped
     const bubbles = this.state.bubbles.map((bubble) =>
       bubble.id === id ? { ...bubble, popped: true } : bubble
     );
+
     this.setState({ bubbles });
 
-    // Display some info on the screen (you can replace this with your own logic)
-    alert("You popped a bubble!");
+    // Delay the removal of the clicked bubble to allow time for animation
+    setTimeout(() => {
+      this.removeBubble(id);
+    }, 1000); // Adjust the delay as needed for your animation duration
+  };
+
+  removeBubble = (id) => {
+    // Remove the clicked bubble from the state
+    const updatedBubbles = this.state.bubbles.filter(
+      (bubble) => bubble.id !== id
+    );
+    this.setState({ bubbles: updatedBubbles });
   };
 
   // Function to start the bubble movement timer
   startBubbleMovement = () => {
-    setInterval(this.moveBubbles, 50); // Adjust the interval as needed
+    setInterval(this.moveBubbles, 50);
   };
 
   render() {
     return (
-      <div className="vh-100" style={{backgroundColor:'skyblue'}}>
-        {this.state.bubbles.map((bubble) => (
-          <Bubble
-            key={bubble.id}
-            id={bubble.id}
-            x={bubble.x}
-            y={bubble.y}
-            popped={bubble.popped}
-            onClick={this.handleBubbleClick}
-            pinAngle={this.state.pinAngle}
-          />
-        ))}
+      <div className="vh-100" style={{ backgroundColor: "skyblue" }}>
+        <div className="w-95">
+          {this.state.bubbles.map((bubble) => (
+            <Bubble
+              key={bubble.id}
+              id={bubble.id}
+              x={bubble.x}
+              y={bubble.y}
+              popped={bubble.popped}
+              onClick={this.handleBubbleClick}
+              color={bubble.color}
+            />
+          ))}
+        </div>
       </div>
     );
   }
