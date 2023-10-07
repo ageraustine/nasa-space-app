@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { withRouter } from "../component/withRouter";
 
 export class HomePage extends Component {
   constructor(props) {
@@ -85,7 +86,10 @@ export class HomePage extends Component {
         </div>
         <div className="row justify-content-center">
           <div
-            class="card mt-2 mb-2 ms-1"
+            class="card btn mt-2 mb-2 ms-1"
+            onClick={() => {
+              this.props.navigate("/");
+            }}
             style={{
               background: "linear-gradient(135deg, purple, blue)",
               textAlign: "center",
@@ -94,9 +98,6 @@ export class HomePage extends Component {
               width: "20em",
             }}
           >
-            {/* <div className="align-self-center">
-              <i className={`bi ${val.icon}`} style={{ fontSize: "3rem" }} />
-            </div> */}
             <div class="card-body" style={{ textAlign: "center" }}>
               <h5 class="card-title">BLOGS</h5>
               <p class="card-text">
@@ -105,7 +106,10 @@ export class HomePage extends Component {
             </div>
           </div>
           <div
-            class="card mt-2 mb-2 ms-1"
+            class="card btn mt-2 mb-2 ms-1"
+            onClick={() => {
+              this.props.navigate("/game");
+            }}
             style={{
               background: "linear-gradient(135deg, purple, blue)",
               textAlign: "center",
@@ -114,16 +118,16 @@ export class HomePage extends Component {
               width: "20em",
             }}
           >
-            {/* <div className="align-self-center">
-              <i className={`bi ${val.icon}`} style={{ fontSize: "3rem" }} />
-            </div> */}
             <div class="card-body" style={{ textAlign: "center" }}>
               <h5 class="card-title">EMITHUB GAME</h5>
               <p class="card-text">Play and Enjoy EMITHUB Bubble Game</p>
             </div>
           </div>
           <div
-            class="card mt-2 mb-2 ms-1"
+            class="card btn mt-2 mb-2 ms-1"
+            onClick={() => {
+              this.props.navigate("/");
+            }}
             style={{
               background: "linear-gradient(135deg, purple, blue)",
               textAlign: "center",
@@ -132,9 +136,6 @@ export class HomePage extends Component {
               width: "20em",
             }}
           >
-            {/* <div className="align-self-center">
-              <i className={`bi ${val.icon}`} style={{ fontSize: "3rem" }} />
-            </div> */}
             <div class="card-body" style={{ textAlign: "center" }}>
               <h5 class="card-title">COMMUNITY</h5>
               <p class="card-text">
@@ -152,4 +153,4 @@ export class HomePage extends Component {
   }
 }
 
-export default HomePage;
+export default withRouter(HomePage);

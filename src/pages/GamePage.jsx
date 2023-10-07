@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./GamePage.css";
 import Bubble from "./Bubble";
 
 class GamePage extends Component {
@@ -73,8 +72,7 @@ class GamePage extends Component {
 
   render() {
     return (
-      <div className="container">
-        <div className="pin" onClick={this.handlePinClick}></div>
+      <div className="vh-100" style={{backgroundColor:'skyblue'}}>
         {this.state.bubbles.map((bubble) => (
           <Bubble
             key={bubble.id}
