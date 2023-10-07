@@ -1,0 +1,16 @@
+.App {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    position: relative;
+    background-color: #f0f0f0;
+  }
+  
+  .pin {
+    /* Additional styling for the pin in the main app */
+    position: absolute;
+    bottom: 20px;
+  }
+  

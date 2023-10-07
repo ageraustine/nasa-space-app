@@ -1,0 +1,25 @@
+.bubble {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #00bfff;
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  .bubble.popped {
+    background-color: transparent;
+    border: 2px solid #00bfff;
+  }
+  
+  .pin {
+    width: 10px;
+    height: 60px;
+    background-color: #ff5733;
+    position: absolute;
+    left: calc(50% - 5px);
+    bottom: 0;
+    transform-origin: 50% 0%;
+    cursor: pointer;
+  }
+  
