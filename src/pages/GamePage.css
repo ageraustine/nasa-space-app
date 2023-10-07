@@ -7,9 +7,8 @@
     position: relative;
     background-color: #f0f0f0;
   }
-  
-  .pin {
-    /* Additional styling for the pin in the main app */
+
+  .pin { 
     position: absolute;
     bottom: 20px;
   }
