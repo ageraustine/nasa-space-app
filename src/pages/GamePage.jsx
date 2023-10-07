@@ -55,9 +55,6 @@ class GamePage extends Component {
     const bubbles = this.state.bubbles.map((bubble) =>
       bubble.id === id ? { ...bubble, popped: true } : bubble
     );
-
-    this.setState({ bubbles, hasPopped: true });
-
     const infos = [
       "CO2 Emission 8% up",
       "Kalahari Desert Methane is 3% down",
@@ -65,9 +62,10 @@ class GamePage extends Component {
     ];
 
     const info = infos[Math.floor(Math.random() * infos.length)];
+    this.setState({ bubbles, hasPopped: true, info: info });
 
     setInterval(() => {
-      this.setState({ hasPopped: false, info: info });
+      this.setState({ hasPopped: false });
     }, 5000);
 
     this.removeBubble(id);
