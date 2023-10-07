@@ -91,7 +91,7 @@ export class HomePage extends Component {
               this.props.navigate("/");
             }}
             style={{
-              background: "linear-gradient(135deg, purple, blue)",
+              background: "linear-gradient(135deg, skyblue, blue)",
               textAlign: "center",
               color: "white",
               zIndex: 100,
@@ -111,7 +111,7 @@ export class HomePage extends Component {
               this.props.navigate("/game");
             }}
             style={{
-              background: "linear-gradient(135deg, purple, blue)",
+              background: "linear-gradient(135deg, skyblue, blue)",
               textAlign: "center",
               color: "white",
               zIndex: 100,
@@ -129,7 +129,7 @@ export class HomePage extends Component {
               this.props.navigate("/");
             }}
             style={{
-              background: "linear-gradient(135deg, purple, blue)",
+              background: "linear-gradient(135deg, skyblue, blue)",
               textAlign: "center",
               color: "white",
               zIndex: 100,

@@ -16,7 +16,7 @@ class Header extends Component {
         }}
       >
         <div class="container-fluid">
-          <a class="navbar-brand" href="/" style={{ color: "indigo" }}>
+          <a class="navbar-brand" href="/" style={{ color: "blue" }}>
             EMITHUB
           </a>
           <button
