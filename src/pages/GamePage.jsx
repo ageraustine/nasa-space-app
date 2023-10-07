@@ -6,6 +6,8 @@ class GamePage extends Component {
     super();
     this.state = {
       bubbles: [],
+      hasPopped: false,
+      info: "SO2 Gas Projected to Increase by 0.2% this year",
     };
   }
 
@@ -54,12 +56,21 @@ class GamePage extends Component {
       bubble.id === id ? { ...bubble, popped: true } : bubble
     );
 
-    this.setState({ bubbles });
+    this.setState({ bubbles, hasPopped: true });
 
-    // Delay the removal of the clicked bubble to allow time for animation
-    setTimeout(() => {
-      this.removeBubble(id);
-    }, 1000); // Adjust the delay as needed for your animation duration
+    const infos = [
+      "CO2 Emission 8% up",
+      "Kalahari Desert Methane is 3% down",
+      "EMIT Datasets waiting for you",
+    ];
+
+    const info = infos[Math.floor(Math.random() * infos.length)];
+
+    setInterval(() => {
+      this.setState({ hasPopped: false, info: info });
+    }, 5000);
+
+    this.removeBubble(id);
   };
 
   removeBubble = (id) => {
@@ -78,6 +89,14 @@ class GamePage extends Component {
   render() {
     return (
       <div className="vh-100" style={{ backgroundColor: "skyblue" }}>
+        <div
+          class="alert alert-warning"
+          role="alert"
+          hidden={!this.state.hasPopped}
+        >
+          {this.state.info}
+        </div>
+
         <div className="w-95">
           {this.state.bubbles.map((bubble) => (
             <Bubble

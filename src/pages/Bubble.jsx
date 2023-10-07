@@ -11,6 +11,7 @@ const Bubble = ({ id, x, y, popped, onClick, color }) => {
   return (
     <div
       className={`bubble ${popped ? "popped" : ""}`}
+      hidden = {popped}
       style={bubbleStyle}
       onClick={() => onClick(id)}
     ></div>
