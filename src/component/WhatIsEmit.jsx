@@ -28,8 +28,8 @@ export const WhatIsEmit = () => {
 
       <div className="mt-6 relative">
         <img src={emit} alt="EMIT Instrument" className="w-full rounded-lg shadow" />
-        <small className="absolute bottom-0 right-0 m-4 text-gray-600">
-            Copyright <span className="underline">Unsplash</span>
+        <small className="absolute bottom-0 right-0 m-4 text-gray-600 italic">
+            <i>Copyright <span className="underline">NASA</span></i>
         </small>
         </div>
 
