@@ -48,7 +48,7 @@ class Header extends Component {
                   aria-current="page"
                   href="/blogs"
                 >
-                  BLOGS
+                  UPDATES
                 </a>
               </li>
             </div>
