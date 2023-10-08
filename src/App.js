@@ -1,26 +1,17 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Component } from "react";
+import React from "react";
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import Header from "./component/Header";
-import GamePage from "./pages/GamePage";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+import Layout from "./component/Layout";
+import {BrowserRouter as Router} from "react-router-dom";
 
-  render() {
-    return (
-      <Router>
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/game" element={<GamePage />} />
-        </Routes>
-      </Router>
-    );
-  }
+function App() {
+  return (
+  <React.StrictMode>
+    <Router>
+        <Layout />
+    </Router>
+    </React.StrictMode>
+  );
 }
 
 export default App;
